@@ -19,7 +19,7 @@ app.post('/posts/:id/comments', async (req, res) => {
   const commentId = randomBytes(4).toString('hex');
   const { content } = req.body;
 
-  comments.push({ id: commentId, content });
+  comments.push({ id: commentId, content, status: 'pending' });
   commentsByPostId[req.params.id] = comments;
 
   await axios
@@ -29,6 +29,7 @@ app.post('/posts/:id/comments', async (req, res) => {
         commentId: commentId,
         content,
         postId: req.params.id,
+        status: 'pending',
       },
     })
     .catch((err) => console.log(err.message));
