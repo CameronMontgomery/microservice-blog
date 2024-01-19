@@ -9,13 +9,13 @@ app.post('/events', (req, res) => {
   const event = req.body;
 
   axios.post('http://localhost:4000/events', event).catch((err) => {
-    console.log(err.message);
+    console.log(err.message, 'Posts');
   });
   axios.post('http://localhost:4001/events', event).catch((err) => {
-    console.log(err.message);
+    console.log(err.message, 'Posts');
   });
   axios.post('http://localhost:4002/events', event).catch((err) => {
-    console.log(err.message);
+    console.log(err.message, 'Query');
   });
 
   res.send({ status: 'ok' });
