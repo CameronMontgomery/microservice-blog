@@ -6,11 +6,13 @@ function PostList() {
   const [posts, setPosts] = useState({});
 
   const fetchPosts = async () => {
-    const res = await fetch('http://localhost:4000/posts');
+    const res = await fetch('http://localhost:4002/posts');
+    const data = await res.json();
+
     if (!res.ok) {
       console.log('Fetch of posts failed');
     } else {
-      setPosts(await res.json());
+      setPosts(data);
     }
   };
 
@@ -26,7 +28,7 @@ function PostList() {
     >
       <div className='card-body'>
         <h3>{post.title}</h3>
-        <CommentList postId={post.id} />
+        <CommentList comments={post.comments} />
         <CreateComment postId={post.id} />
       </div>
     </div>
