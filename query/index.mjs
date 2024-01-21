@@ -19,7 +19,7 @@ const handleEvent = (type, data) => {
       comments: [],
     };
   } else if (type === 'CommentCreated') {
-    const { id, content, postId, status } = req.body.data;
+    const { id, content, postId, status } = data;
 
     posts[postId].comments.push({
       id,
@@ -27,7 +27,7 @@ const handleEvent = (type, data) => {
       status,
     });
   } else if (type === 'CommentUpdated') {
-    const { id, content, postId, status } = req.body.data;
+    const { id, content, postId, status } = data;
     const post = posts[postId];
 
     const comment = post.comments.find((comment) => comment.id === id);
