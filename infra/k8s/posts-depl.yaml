@@ -1,0 +1,17 @@
+apiVersion: apps/v1 # Location to find the Deployment object
+kind: Deployment # Object name
+metadata: # configuration data for the object being created
+  name: posts-depl # name for the deployment
+spec: # describes the configuration for our deployment
+  replicas: 1 # Number of pods we want to create running a particular image
+  selector: # Lets the deployment know what pods to be in charge of
+    matchLabels: # look for a label with the following.
+      app: posts # This is the label to match
+  template: # Where we specify the exact config of a pod we want the deployment to create.
+    metadata: # Configuration to be applied to pod
+      labels: # Specifies the label we wish the pod to have
+        app: posts # This is a label, key:value pair adding info to a pod
+    spec: # Describes the configuration for our pod
+      containers: # The containers that should be in the pod
+        - name: posts
+          image: jcmontgomery/posts
