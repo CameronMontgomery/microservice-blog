@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: posts-svr # Name of the service.
+spec: # Customize how the service behaves
+  type: NodePort # The type of service to create
+  selector: # Tells the service which pods it should expose
+    app: posts # Label, matches the one for the deployment
+  ports: # Describe the ports to expose to outside the cluster
+    - name: posts # Could be anything, and is used to label the service in logs.
+      protocol: TCP # Connection protocol
+      port: 4000 # Node Port Service port
+      targetPort: 4000 # End port within our container from our Node server. Where we want traffic to get reach

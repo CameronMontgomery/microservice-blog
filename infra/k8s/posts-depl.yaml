@@ -10,7 +10,7 @@ spec: # describes the configuration for our deployment
   template: # Where we specify the exact config of a pod we want the deployment to create.
     metadata: # Configuration to be applied to pod
       labels: # Specifies the label we wish the pod to have
-        app: posts # This is a label, key:value pair adding info to a pod
+        app: posts # This is a label, key:value which will label the pod when created. Similar to a HTML className.
     spec: # Describes the configuration for our pod
       containers: # The containers that should be in the pod
         - name: posts
