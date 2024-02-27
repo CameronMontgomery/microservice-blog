@@ -5,7 +5,7 @@ const CreateComment = ({ postId }) => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    fetch(`http://localhost:4001/posts/${postId}/comments`, {
+    fetch(`http://post.com/posts/${postId}/comments`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

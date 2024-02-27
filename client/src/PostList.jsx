@@ -6,7 +6,7 @@ function PostList() {
   const [posts, setPosts] = useState({});
 
   const fetchPosts = async () => {
-    const res = await fetch('http://localhost:4002/posts');
+    const res = await fetch('http://post.com/posts');
     const data = await res.json();
 
     if (!res.ok) {
